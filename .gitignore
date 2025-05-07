@@ -1,0 +1,22 @@
+# === Node dependencies ===
+to-do-frontend/node_modules
+to-do-backend/node_modules
+
+# === Environment variables ===
+to-do-backend/.env
+
+# === Build output ===
+to-do-frontend/build
+
+# === Testing ===
+coverage/
+
+# === Misc ===
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === PnP stuff ===
+.pnp/
+.pnp.js
