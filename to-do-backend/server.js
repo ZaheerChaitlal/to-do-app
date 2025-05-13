@@ -1,6 +1,3 @@
-// Backend: Express Server
-// File: server.js
-// Run 'npm run dev' to start the server
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -9,7 +6,11 @@ const { MongoClient, ObjectId } = require('mongodb');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+    credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const uri = process.env.MONGO_URI;
