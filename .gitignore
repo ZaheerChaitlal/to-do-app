@@ -4,6 +4,7 @@ to-do-backend/node_modules
 
 # === Environment variables ===
 to-do-backend/.env
+to-do-frontend/.env
 
 # === Build output ===
 to-do-frontend/build

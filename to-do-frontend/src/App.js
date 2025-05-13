@@ -1,6 +1,3 @@
-// Frontend: React App
-// File: App.js
-// Run 'npm start' to start the app
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.css';
@@ -11,14 +8,16 @@ function App() {
     const [editText, setEditText] = useState('');
     const [editingId, setEditingId] = useState(null);
 
+    const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
     useEffect(() => {
-        axios.get('http://localhost:5000/todos')
+        axios.get(`${API_BASE}/todos`)
             .then(response => setTodos(response.data));
     }, []);
 
     const addTodo = () => {
         if (text) {
-            axios.post('http://localhost:5000/todos', { text })
+            axios.post(`${API_BASE}/todos`, { text })
                 .then(response => setTodos([...todos, response.data]));
             setText('');
         }
@@ -31,7 +30,7 @@ function App() {
 
     const updateTodo = (id) => {
         if (editText) {
-            axios.put(`http://localhost:5000/todos/${id}`, { text: editText })
+            axios.put(`${API_BASE}/todos/${id}`, { text: editText })
                 .then(response => {
                     setTodos(todos.map(todo => todo._id === id ? response.data : todo));
                     setEditingId(null);
@@ -41,7 +40,7 @@ function App() {
     };
 
     const deleteTodo = (id) => {
-        axios.delete(`http://localhost:5000/todos/${id}`)
+        axios.delete(`${API_BASE}/todos/${id}`)
             .then(() => setTodos(todos.filter(todo => todo._id !== id)));
     };
 
@@ -76,6 +75,7 @@ function App() {
                     </li>
                 ))}
             </ul>
+            <img src="/Landscape.jpg" alt="Landscape" style={{ width: '100%', height: 'auto' }} />
         </div>
     );
 }
