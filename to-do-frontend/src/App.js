@@ -45,37 +45,45 @@ function App() {
     };
 
     return (
-        <div>
-            <h1>Todo App (MERN)</h1>
-            <input 
-                value={text} 
-                onChange={(e) => setText(e.target.value)} 
-                placeholder="Add a new todo" 
-            />
-            <button onClick={addTodo}>Add</button>
+        <div className="container">
+            <h1 className="header">Todo App (MERN)</h1>
+            <div className="input-container">
+                <input 
+                    value={text} 
+                    onChange={(e) => setText(e.target.value)} 
+                    placeholder="Add a new todo" 
+                />
+                <button onClick={addTodo}>Add</button>
+            </div>
             <ul>
                 {todos.map(todo => (
                     <li key={todo._id}>
                         {editingId === todo._id ? (
-                            <div>
+                            <>
                                 <input 
                                     value={editText} 
                                     onChange={(e) => setEditText(e.target.value)} 
                                     placeholder="Edit todo"
                                 />
                                 <button className='update' onClick={() => updateTodo(todo._id)}>Update</button>
-                            </div>
+                            </>
                         ) : (
-                            <div>
+                            <>
                                 <span>{todo.text}</span>
                                 <button className='edit' onClick={() => startEditing(todo._id, todo.text)}>Edit</button>
                                 <button className='delete' onClick={() => deleteTodo(todo._id)}>Delete</button>
-                            </div>
+                            </>
                         )}
                     </li>
                 ))}
             </ul>
-            <img src="/Landscape.jpg" alt="Landscape" style={{ width: '100%', height: 'auto' }} />
+            <img
+                src="/Landscape.jpg"
+                alt="Landscape"
+                className="responsive"
+                width="1200"
+                height="600"
+            />
         </div>
     );
 }
