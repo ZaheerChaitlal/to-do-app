@@ -74,9 +74,15 @@ li {
   font-size: 16px;
 }
 
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
 li button.delete {
   background: #dc3545;
   width: auto;
+  margin-left: 0;
 }
 
 li button.delete:hover {
@@ -86,6 +92,7 @@ li button.delete:hover {
 li button.edit {
   background: #00D423;
   width: auto;
+  margin-left: 0;
 }
 
 li button.edit:hover {
@@ -100,13 +107,4 @@ li button.update {
 
 li button.update:hover {
   background: #0056b3;
-}
-
-img.responsive {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2 / 1;
-  display: block;
-  margin-top: 20px;
-  border-radius: 8px;
 }

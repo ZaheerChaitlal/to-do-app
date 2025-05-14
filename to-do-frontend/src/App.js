@@ -70,20 +70,15 @@ function App() {
                         ) : (
                             <>
                                 <span>{todo.text}</span>
-                                <button className='edit' onClick={() => startEditing(todo._id, todo.text)}>Edit</button>
-                                <button className='delete' onClick={() => deleteTodo(todo._id)}>Delete</button>
+                                <div className="button-group">
+                                    <button className='edit' onClick={() => startEditing(todo._id, todo.text)}>Edit</button>
+                                    <button className='delete' onClick={() => deleteTodo(todo._id)}>Delete</button>
+                                </div>
                             </>
                         )}
                     </li>
                 ))}
             </ul>
-            <img
-                src="/Landscape.jpg"
-                alt="Landscape"
-                className="responsive"
-                width="1200"
-                height="600"
-            />
         </div>
     );
 }
